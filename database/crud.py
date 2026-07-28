@@ -176,3 +176,28 @@ def email_exists(db: Session, email: str) -> bool:
         .first()
         is not None
     )
+
+# ==========================================================
+# LOGIN HELPERS
+# ==========================================================
+
+def get_student_by_registration(db: Session, registration_no: str):
+    """
+    Get student by registration number.
+    """
+    return (
+        db.query(Student)
+        .filter(Student.registration_no == registration_no)
+        .first()
+    )
+
+
+def get_admin_by_username(db: Session, username: str):
+    """
+    Get admin by username.
+    """
+    return (
+        db.query(Admin)
+        .filter(Admin.username == username)
+        .first()
+    )
