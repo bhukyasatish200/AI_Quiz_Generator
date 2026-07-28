@@ -149,3 +149,30 @@ def save_result(db: Session, result):
     db.commit()
     db.refresh(result)
     return result
+
+# ==========================================================
+# STUDENT VALIDATION
+# ==========================================================
+
+def registration_exists(db: Session, registration_no: str) -> bool:
+    """
+    Check whether a registration number already exists.
+    """
+    return (
+        db.query(Student)
+        .filter(Student.registration_no == registration_no)
+        .first()
+        is not None
+    )
+
+
+def email_exists(db: Session, email: str) -> bool:
+    """
+    Check whether an email already exists.
+    """
+    return (
+        db.query(Student)
+        .filter(Student.email == email)
+        .first()
+        is not None
+    )
