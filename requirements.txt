@@ -1,0 +1,15 @@
+streamlit
+sqlalchemy
+bcrypt
+pandas
+pymupdf
+python-docx
+transformers
+sentence-transformers
+torch
+accelerate
+bitsandbytes
+faiss-cpu
+langchain
+langchain-community
+huggingface-hub
